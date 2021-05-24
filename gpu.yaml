@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpu
+  labels:
+    app: gpu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gpu
+  template:
+    metadata:
+      labels:
+        app: gpu
+    spec:
+      containers:
+      - name: gpu
+        image: prostate-gpu
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8002
+        env:
+        - name: API_SERVER
+          valueFrom: 
+            configMapKeyRef:
+              name: api-configmap
+              key: database_url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gpu-service
+spec:
+  selector:
+    app: gpu
+  ports:
+    - protocol: TCP
+      port: 8002
+      targetPort: 8002

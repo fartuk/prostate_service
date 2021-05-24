@@ -1,0 +1,9 @@
+pandas==1.0.4
+numpy==1.18.1
+requests==2.25.1
+tqdm==4.46.1
+fastapi==0.63.0
+fastapi-utils==0.2.1
+uvicorn==0.13.4
+aiofiles==0.6.0
+python-multipart==0.0.5

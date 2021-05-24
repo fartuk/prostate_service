@@ -1,0 +1,13 @@
+#tf-nightly-gpu==2.5.0.dev20200629
+tensorflow-gpu==2.1.1
+jupyter==1.0.0
+pandas==1.0.4
+matplotlib==3.2.1
+lightgbm==2.3.1
+tqdm==4.46.1
+opencv-python==3.3.0.10
+opencv-contrib-python==3.3.1.11
+requests==2.23.0
+scikit-image==0.17.2
+openslide-python==1.1.1
+scikit-learn==0.22rc2.post1

@@ -1,0 +1,22 @@
+FROM tensorflow/tensorflow:latest-gpu-py3
+  
+  
+RUN apt-get update
+RUN apt-get install -y libxext6 libsm6 libxext6 libxrender-dev
+RUN apt-get update
+RUN apt-get install -y openslide-tools
+RUN apt-get install -y python-openslide 
+
+COPY requirements_gpu.txt ./requirements.txt
+RUN pip3 install -r requirements.txt
+
+
+WORKDIR /app
+COPY . ./
+
+RUN export LC_ALL=C.UTF-8
+RUN export LANG=C.UTF-8
+
+
+CMD ["python3", "run_gpu.py"]
+
